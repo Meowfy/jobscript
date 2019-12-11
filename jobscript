@@ -3,7 +3,6 @@
 #logic to see if a user already exists before creating it
 echo -e "Please create a user (must be lowercase): \c"
 read USER
-#usercheck="grep -c $USER /etc/passwd"
 usercheck=$(grep -c $USER /etc/passwd)
 while [ "$usercheck" = 1 ]
 do
