@@ -1,0 +1,42 @@
+#! /bin/bash
+
+#logic to see if a user already exists before creating it
+echo -e "Please create a user (must be lowercase): \c"
+read USER
+#usercheck="grep -c $USER /etc/passwd"
+usercheck=$(grep -c $USER /etc/passwd)
+while [ "$usercheck"=1 ]
+do
+	echo -e "User '$USER' already exists. Please try again: \c"
+	read USER
+done
+sudo useradd $USER 2>/dev/null
+
+#creates user groups
+#groupadd CNT Accounting IT Managers
+
+#creates directories
+#mkdir ~/Documents/school/projects/homeoffice
+#mkdir ~/Documents/school/projects/homeoffice/Accounting
+#mkdir ~/Documents/school/projects/homeoffice/IT
+#mkdir ~/Documents/school/projects/homeoffice/IT/CNT
+
+#creates IT files in IT directories
+#touch ~/Documents/school/projects/homeoffice/IT/Cable
+#touch ~/Documents/school/projects/homeoffice/IT/Terminators
+#touch ~/Documents/school/projects/homeoffice/IT/Tester
+
+#creates Acc files in Acc dirs
+#touch ~/Documents/school/projects/homeoffice/Accounting/Frank
+#touch ~/Documents/school/projects/homeoffice/Accounting/Mary
+#touch ~/Documents/school/projects/homeoffice/Accounting/Bob
+#touch ~/Documents/school/projects/homeoffice/Accounting/Tom
+#touch ~/Documents/school/projects/homeoffice/Accounting/Jerry
+
+#creates IP list in IT/CNT dir
+#touch ~/Documents/school/projects/homeoffice/IT/CNT/Frank
+#touch ~/Documents/school/projects/homeoffice/IT/CNT/Mary
+#touch ~/Documents/school/projects/homeoffice/IT/CNT/Bob
+#touch ~/Documents/school/projects/homeoffice/IT/CNT/Tom
+#touch ~/Documents/school/projects/homeoffice/IT/CNT/Jerry
+
