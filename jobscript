@@ -12,34 +12,38 @@ do
 done
 sudo useradd $USER 2>/dev/null
 
+dircheck=$(grep -c ~/Documents/school/projects/homeoffice)
+if [ "$dircheck" = 1 ]
+then
 #creates user groups
-sudo groupadd cnt 
-sudo groupadd accounting 
-sudo groupadd it 
-sudo groupadd managers
+	sudo groupadd cnt 
+	sudo groupadd accounting 
+	sudo groupadd it 
+	sudo groupadd managers
 
 #creates directories
-mkdir ~/Documents/school/projects/homeoffice
-mkdir ~/Documents/school/projects/homeoffice/Accounting
-mkdir ~/Documents/school/projects/homeoffice/IT
-mkdir ~/Documents/school/projects/homeoffice/IT/CNT
+	mkdir ~/Documents/school/projects/homeoffice
+	mkdir ~/Documents/school/projects/homeoffice/Accounting
+	mkdir ~/Documents/school/projects/homeoffice/IT
+	mkdir ~/Documents/school/projects/homeoffice/IT/CNT
 
 #creates IT files in IT directories
-touch ~/Documents/school/projects/homeoffice/IT/Cable
-touch ~/Documents/school/projects/homeoffice/IT/Terminators
-touch ~/Documents/school/projects/homeoffice/IT/Tester
+	touch ~/Documents/school/projects/homeoffice/IT/Cable
+	touch ~/Documents/school/projects/homeoffice/IT/Terminators
+	touch ~/Documents/school/projects/homeoffice/IT/Tester
 
 #creates Acc files in Acc dirs
-touch ~/Documents/school/projects/homeoffice/Accounting/Frank
-touch ~/Documents/school/projects/homeoffice/Accounting/Mary
-touch ~/Documents/school/projects/homeoffice/Accounting/Bob
-touch ~/Documents/school/projects/homeoffice/Accounting/Tom
-touch ~/Documents/school/projects/homeoffice/Accounting/Jerry
+	touch ~/Documents/school/projects/homeoffice/Accounting/Frank
+	touch ~/Documents/school/projects/homeoffice/Accounting/Mary
+	touch ~/Documents/school/projects/homeoffice/Accounting/Bob
+	touch ~/Documents/school/projects/homeoffice/Accounting/Tom
+	touch ~/Documents/school/projects/homeoffice/Accounting/Jerry
 
 #creates IP list in IT/CNT dir
-touch ~/Documents/school/projects/homeoffice/IT/CNT/Frank
-touch ~/Documents/school/projects/homeoffice/IT/CNT/Mary
-touch ~/Documents/school/projects/homeoffice/IT/CNT/Bob
-touch ~/Documents/school/projects/homeoffice/IT/CNT/Tom
-touch ~/Documents/school/projects/homeoffice/IT/CNT/Jerry
-
+	touch ~/Documents/school/projects/homeoffice/IT/CNT/Frank
+	touch ~/Documents/school/projects/homeoffice/IT/CNT/Mary
+	touch ~/Documents/school/projects/homeoffice/IT/CNT/Bob
+	touch ~/Documents/school/projects/homeoffice/IT/CNT/Tom
+	touch ~/Documents/school/projects/homeoffice/IT/CNT/Jerry
+else
+fi
