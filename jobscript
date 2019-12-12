@@ -3,12 +3,14 @@
 #logic to see if a user already exists before creating it
 echo -e "Please create a user (must be lowercase): \c"
 read USER
-usercheck=$(grep -c $USER /etc/passwd)
-while [ "$usercheck" = 1 ]
+#usercheck=$(grep -c $USER /etc/passwd)
+usercheck=$(id -u $USER > /dev/null 2>&1; echo $?)
+while [ "$usercheck" = 0 ]
 do
 	echo -e "User '$USER' already exists. Please try again: \c"
 	read USER
-	usercheck=$(grep -c $USER /etc/passwd)
+	#usercheck=$(grep -c $USER /etc/passwd)
+	usercheck=$(id -u $USER > /dev/null 2>&1; echo $$?)
 done
 sudo useradd $USER 2>/dev/null
 
